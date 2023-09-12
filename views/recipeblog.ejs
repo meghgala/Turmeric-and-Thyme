@@ -51,53 +51,54 @@
             </div>
         </header>
     </div>
-    <!--------------------------------------------------------------------------------------------->
-    <section class="featured-recipes" id="blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-heading">
-                        <span>Showing results for "rice"</span>
-                    </div>
-                </div> 
-            </div> 
-            <div class="row" id="recipeCardsContainer">
-                <% recipesData.forEach(function(recipe) { %>
-                    <div class="col-md-4 col-sm-6 col-xs-12 p-4">
-                        <div class="featured-item">
-                            <div class="thumb">
-                                <img src="<%= recipe.imgSrc %>" alt="">
-                                <div class="date-content">
-                                    <h6><%= recipe.date %></h6>
-                                </div>
-                            </div>
-                            <div class="down-content">
-                                <h4><%= recipe.title %></h4>
-                                <span><%= recipe.category %></span>
-                                <p><%= recipe.description %></p>
-                                <div class="row">
-                                    <div class="col-md-6 first-button">
-                                        <div class="text-button">
-                                            <a href="#">Add to favorites</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="text-button">
-                                            <a href="#">Continue Reading</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <% }); %>
+    <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+    <div class="container mt-5">
+        <div class="card mx-auto" style="max-width: 600px; background-color: #b8e994;" >
+            <!-- Recipe heading -->
+            <% blog.forEach((element) => { %>
+            <div class="card-header text-white text-center">
+                <h1 class="display-4"><%= element.title %></h1>
+                <p class="lead"><%= element.description %></p>
+            </div>
+            
+            <!-- Food Image -->
+            <img src="food.png" alt="Food Image" class="card-img-top" style="max-height: 400px; object-fit: cover;">
+            
+            <!-- Recipe Facts -->
+            <div class="card-body">
+                <h2 class="card-title">Recipe Facts</h2>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Calories:</strong> 350</li>
+                    <li class="list-group-item"><strong>Prep Time:</strong> 20 min</li>
+                    <li class="list-group-item"><strong>Cook Time:</strong> 30 min</li>
+                    <li class="list-group-item"><strong>Servings:</strong> 4</li>
+                </ul>
+            </div>
+
+            <!-- Ingredients Section -->
+            <div class="card-body">
+                <h2 class="card-title">Ingredients</h2>
+                <ul class="list-group">
+                    <% element.ingredients.forEach((item) => { %>
+                    <li class="list-group-item"><%= item %></li>
+                    <% }); %>
+                    <!-- Add more ingredients as needed -->
+                </ul>
+            </div>
+
+            <!-- Steps Section -->
+            <div class="card-body">
+                <h2 class="card-title">Steps</h2>
+                <ol>
+                    <% element.steps.forEach((item) => { %>
+                    <li><%= item %></li>
+                    <% }); %>
+                </ol>
             </div>
         </div>
-                <!---------->
-            </div>
-        </div>
-    </section>
-    <!-------------------------------------------------------------------------------------------------------------------------------->
+        <% }); %>
+    </div>
+    <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
     <footer>
         <div class="container">
             <div class="row">
@@ -161,5 +162,9 @@
             </div>
         </div>
     </footer>
+    <!-- Include Bootstrap JS (Optional) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
