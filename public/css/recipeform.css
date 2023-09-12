@@ -1,0 +1,35 @@
+.form-control{
+    background: rgb(255, 255, 255);
+    border: 1px solid #1D1E18;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px 16px ;
+    height: 10%;
+    width: 100%;
+    justify-content: center;
+}
+
+.add_bttn{
+    display: inline-block;
+    background-color: #1b1b1b;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px 16px;
+    text-decoration: none;
+    transition: all 0.5s;
+    border: 1px solid #1D1E18;
+    height: 5%;
+    width: 15%;
+    justify-content: center;
+}
+
+.add_bttn:hover{
+    background-color: white;
+    color: #1D1E18;
+  }
+
+.label-content{
+    font-size: 15px;
+    font-weight: 550;
+}

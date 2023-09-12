@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/recipeform.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/fontAwesome.css">
+        <link rel="stylesheet" href="css/hero-slider.css">
+        <link rel="stylesheet" href="css/owl-carousel.css">
+        <link rel="stylesheet" href="css/datepicker.css">
+        <link rel="stylesheet" href="css/templatemo-style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recipe Form</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="js/index.js"></script>
+        <link rel="stylesheet" href="css/recipeform.css">
+    </head>
+
+<body>
+    <div class="wrap">
+        <header id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button id="primary-nav-button" type="button">Menu</button>
+                      <!--  <a href="index.html"><div class="logo">
+                            <img src="img/logo.png" alt="Venue Logo">
+                        </div></a>-->
+                        <nav id="primary-nav" class="dropdown cf">
+                            <ul class="dropdown menu">
+                                <li class='active'><a href="/index">Home</a></li>
+                                <li><a href="#">Most Visited</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Most Visited 1</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">Sub Visited Menu 1</a></li>
+                                                <li><a href="#">Sub Visited Two</a></li>
+                                                <li><a href="#">Sub Visited Menu 3</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Most Visited 2</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">Sub Visited Menu 4</a></li>
+                                                <li><a href="#">Sub Visited Five</a></li>
+                                                <li><a href="#">Sub Visited Menu 6</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Most Visited 3</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">Sub Visited Menu 7</a></li>
+                                                <li><a href="#">Sub Visited #8</a></li>
+                                                <li><a href="#">Sub Visited Menu 9</a></li>
+                                                <li><a href="#">Sub Visited #10</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a class="scrollTo" href="/viewrecipe">View Recipes</a></li>
+                                <li><a class="scrollTo" data-scrollTo="contact" href="#">Contact Us</a></li>
+                            </ul>
+                        </nav><!-- / #primary-nav -->
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="container my-5">
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <div class="card p-4" style="background-color: #aad2ba;">
+                    <div class="section-heading"><h2 class="text-center">Recipe Form</h2></div>
+                    <hr>
+
+                    <!-- Recipe Title -->
+                    <div class="form-group">
+                        <label class="label-content" for="recipeTitle">Recipe Title</label>
+                        <input type="text" class="form-control" id="recipeTitle" placeholder="Enter Recipe Title">
+                    </div>
+
+                    <!-- Recipe Description -->
+                    <div class="form-group">
+                        <label class="label-content" for="recipeDescription">Recipe Description</label>
+                        <textarea class="form-control" id="recipeDescription" rows="3" placeholder="Enter Recipe Description"></textarea>
+                    </div>
+
+                    <!-- Image Upload -->
+                    <div class="form-group">
+                        <label class="label-content" for="imageUpload">Image Upload</label>
+                        <input type="file" class="form-control-file" id="imageUpload">
+                    </div>
+                    <hr>
+                    <!-- Ingredients -->
+                    <label class="label-content">Ingredients</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control mb-2" placeholder="Ingredient">
+                        <div id="ingredientsContainer"></div>
+                        <!-- Add more ingredients fields -->
+                        <button class="add_bttn" id="addIngredient">Add +</button>
+                    </div>
+                    <hr>
+                    <!-- Steps -->
+                    <label class="label-content">Steps</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control mb-2" placeholder="Step">
+                        <div id="stepsContainer"></div>
+                        <!-- Add more steps fields -->
+                        <button class="add_bttn" id="addStep">Add +</button>
+                    </div>
+                    <hr>
+                    <!-- Additional Details -->
+                    <label class="label-content">Additional Details</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="calories">Calories</label>
+                            <input type="text" class="form-control" id="calories">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="servings">Servings</label>
+                            <input type="text" class="form-control" id="servings">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="prepTime">Prep Time</label>
+                            <input type="text" class="form-control" id="prepTime">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="cookingTime">Cooking Time</label>
+                            <input type="text" class="form-control" id="cookingTime">
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center mt-4">
+                        <button type="submit" class="add_bttn">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="about-veno">
+                        <div class="logo">
+                            <img src="img/footer_logo.png" alt="Venue Logo">
+                        </div>
+                        <p>Mauris sit amet quam congue, pulvinar urna et, congue diam. Suspendisse eu lorem massa. Integer sit amet posuere tellus, id efficitur leo. In hac habitasse platea dictumst.</p>
+                        <ul class="social-icons">
+                            <li>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-rss"></i></a>
+                                <a href="#"><i class="fa fa-dribbble"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="useful-links">
+                        <div class="footer-heading">
+                            <h4>Useful Links</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-stop"></i>Help FAQs</a></li>
+                                    <li><a href="#"><i class="fa fa-stop"></i>Register</a></li>
+                                    <li><a href="#"><i class="fa fa-stop"></i>Login</a></li>
+                                    <li><a href="#"><i class="fa fa-stop"></i>My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-stop"></i>How It Works?</a></li>
+                                    <li><a href="#"><i class="fa fa-stop"></i>More About Us</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-stop"></i>Our Clients</a></li>
+                                    <li><a href="#"><i class="fa fa-stop"></i>Partnerships</a></li>
+                                    <li><a href="#"><i class="fa fa-stop"></i>Blog Entries</a></li>
+                                    <li><a href="#"><i class="fa fa-stop"></i>Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="contact-info">
+                        <div class="footer-heading">
+                            <h4>Contact Information</h4>
+                        </div>
+                        <p>Praesent iaculis gravida elementum. Proin fermentum neque facilisis semper pharetra. Sed vestibulum vehicula tincidunt.</p>
+                        <ul>
+                            <li><span>Phone:</span><a href="#">010-050-0550</a></li>
+                            <li><span>Email:</span><a href="#">hi@company.co</a></li>
+                            <li><span>Address:</span><a href="#">company.co</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        // Add more ingredient fields
+        $('#addIngredient').click(function () {
+            $('#ingredientsContainer').append('<input type="text" class="form-control mb-2" placeholder="Ingredient">');
+        });
+
+        // Add more step fields
+        $('#addStep').click(function () {
+            $('#stepsContainer').append('<input type="text" class="form-control mb-2" placeholder="Step">');
+        });
+    </script>
+    </body>
+    </html>
