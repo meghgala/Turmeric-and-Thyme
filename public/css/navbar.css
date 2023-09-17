@@ -1,0 +1,22 @@
+.navbar {
+    background-color: black;
+}
+
+.navbar-brand {
+    color: white; /* Text color for the logo */
+    font-weight: bold;
+}
+
+/* Styles for the buttons on the right */
+.navbar-nav {
+    margin-left: auto; /* Pushes the buttons to the right */
+}
+
+.nav-item {
+    margin-left: 15px; /* Adjust the spacing between buttons */
+}
+
+/* Styles for button links */
+.nav-link {
+    color: white; /* Text color for the buttons */
+}

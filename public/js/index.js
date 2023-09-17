@@ -6,3 +6,9 @@ function myFunction() {
     var top = ( screen.height - height ) / 2;
     var newWindow = window.open( url, "center window", 'resizable = yes, width=' + width + ', height=' + height + ', top='+ top + ', left=' + left);
   }
+
+
+  function openLoginPage() {
+      // Open the login page in a new window or tab
+      window.open('login', 'Login', 'width=400,height=400');
+  }
