@@ -1,8 +1,20 @@
 const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
+const authRoutes = require("./routes/authRoutes")
+
+//defining databse URL
+const dburl = 'mongodb+srv://meghgala:*Aom9820354556@turmeric.ldsxedw.mongodb.net/turmandthyme?retryWrites=true&w=majority';
+mongoose.connect(dburl,{useNewUrlParser: true, useUnifiedTopology: true})
+.then((result) => app.listen(3000))
+.catch((err) => console.log(err));
+
+//view engine
 app.set('view engine','ejs')
-app.listen(3000)
+
+//middleware
 app.use(express.static('public'))
+app.use(express.json()) // it takes any json data that comes as a request and parses it into a javascript object for us to use inside the code. (req.body)
 
 
 const recipesData = [
@@ -61,10 +73,6 @@ app.get('/index',(req,res) => {
     res.render('index')
 });
 
-app.get('/login',(req,res) => {
-    res.render('login')
-});
-
 app.get('/inputrecipe',(req,res) => {
     res.render('inputrecipe')
 });
@@ -76,3 +84,9 @@ app.get('/viewrecipe',(req,res) => {
 app.get('/recipeblog',(req,res) => {
     res.render('recipeblog',{blog})
 });
+
+app.get('/contactus',(req,res) => {
+    res.render('contactus')
+});
+
+app.use(authRoutes)

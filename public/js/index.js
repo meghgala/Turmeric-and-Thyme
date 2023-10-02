@@ -12,3 +12,8 @@ function myFunction() {
       // Open the login page in a new window or tab
       window.open('login', 'Login', 'width=400,height=400');
   }
+
+  function openSignupPage() {
+    // Open the login page in a new window or tab
+    window.open('signup', 'Sign UP', 'width=400,height=400');
+}
