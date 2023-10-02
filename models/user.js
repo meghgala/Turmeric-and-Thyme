@@ -1,20 +1,24 @@
 const mongoose = require('mongoose');
 
+//this module returns true if the email is valid and false if the email is invalid.
+const { isEmail } = require('validator')
+
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true,
+        required: [true,'Please enter an email address'],
     },
     email:{
         type: String,
-        required: true,
+        required: [true,'Please enter an email address'],
         unique: true,
-        lowercase: true
+        lowercase: true,
+        validate: [isEmail,'Please enter a valid email'] // using a third party email validator
     },
     password: {
         type: String,
-        required: true,
-        minLength: 6
+        required: [true,'Please enter a password'],
+        minlength: [6,'The length of the password should be atleast 6 characters']
     }
 });
 
