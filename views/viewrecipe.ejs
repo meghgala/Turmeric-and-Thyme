@@ -57,26 +57,26 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <span>Showing results for "rice"</span>
+                        <span>Showing your recipes</span>
                     </div>
                 </div> 
             </div> 
             <div class="row" id="recipeCardsContainer">
-                <% recipesData.forEach(function(recipe) { %>
+                <% recipes.forEach(function(recipe) { %>
                     <div class="col-md-4 col-sm-6 col-xs-12 p-4">
                         <div class="featured-item">
                             <div class="thumb">
-                                <img src="<%= recipe.imgSrc %>" alt="">
+                                <img src="<%= recipe.imageURL %>" alt="">
                             </div>
                             <div class="down-content">
-                                <h4><%= recipe.title %></h4>
+                                <h4><%= recipe.recipeTitle %></h4>
                                 <span><%= recipe.category %></span>
-                                <p><%= recipe.description %></p>
+                                <p class="recipe-description"><%= recipe.recipeDescription %></p>
                                 <div class="row">
 
                                     <div class="col-md-6">
                                         <div class="text-button">
-                                            <a href="#">Continue Reading</a>
+                                            <a href="#" onclick="loadRecipe('<%= recipe._id%>')">Continue Reading</a>
                                         </div>
                                     </div>
                                 </div>
@@ -92,5 +92,15 @@
     </section>
     <!-------------------------------------------------------------------------------------------------------------------------------->
     <%- include('./partials/footer.ejs') %>
+    <script>
+            async function loadRecipe(recipeId) {
+            try {
+                // Redirect to the recipeblog page with the recipe ID as a query parameter
+                window.location.href = '/recipeblog?recipeId=' + recipeId;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
 </body>
 </html>

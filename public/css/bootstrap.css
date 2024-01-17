@@ -4276,13 +4276,13 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #a2cf8d;
+  color: #43533c;
   background-color: transparent;
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
-  color: #a2cf8d;
+  color: #587b48;
   background-color: #080808;
 }
 .navbar-inverse .navbar-nav > .disabled > a,

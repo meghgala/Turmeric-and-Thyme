@@ -41,34 +41,8 @@
                         <nav id="primary-nav" class="dropdown cf">
                             <ul class="dropdown menu">
                                 <li class='active'><a href="/index">Home</a></li>
-                                <li><a href="#">Most Visited</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">Most Visited 1</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="#">Sub Visited Menu 1</a></li>
-                                                <li><a href="#">Sub Visited Two</a></li>
-                                                <li><a href="#">Sub Visited Menu 3</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Most Visited 2</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="#">Sub Visited Menu 4</a></li>
-                                                <li><a href="#">Sub Visited Five</a></li>
-                                                <li><a href="#">Sub Visited Menu 6</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Most Visited 3</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="#">Sub Visited Menu 7</a></li>
-                                                <li><a href="#">Sub Visited #8</a></li>
-                                                <li><a href="#">Sub Visited Menu 9</a></li>
-                                                <li><a href="#">Sub Visited #10</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
                                 <li><a class="scrollTo" href="/viewrecipe">View Recipes</a></li>
-                                <li><a class="scrollTo" data-scrollTo="contact" href="#">Contact Us</a></li>
+                                <li><a class="scrollTo" data-scrollTo="contact" href="/contactus">Contact Us</a></li>
                             </ul>
                         </nav><!-- / #primary-nav -->
                     </div>
@@ -79,6 +53,7 @@
     <div class="container my-5">
         <div class="row justify-content-center mt-4">
             <div class="col-md-8">
+                <form name="input_recipe">
                 <div class="card p-4" style="background-color: #aad2ba;">
                     <div class="section-heading"><h2 class="text-center">Recipe Form</h2></div>
                     <hr>
@@ -97,26 +72,26 @@
 
                     <!-- Image Upload -->
                     <div class="form-group">
-                        <label class="label-content" for="imageUpload">Image Upload</label>
-                        <input type="file" class="form-control-file" id="imageUpload">
+                        <label class="label-content" for="image">Image</label>
+                        <input type="text" class="form-control" id="image" placeholder="Enter Image URL">
                     </div>
                     <hr>
                     <!-- Ingredients -->
                     <label class="label-content">Ingredients</label>
                     <div class="form-group">
-                        <input type="text" class="form-control mb-2" placeholder="Ingredient">
+                        <input type="text" class="form-control mb-2" id="ingredient" placeholder="Ingredient">
                         <div id="ingredientsContainer"></div>
                         <!-- Add more ingredients fields -->
-                        <button class="add_bttn" id="addIngredient">Add +</button>
+                        <button type="button" class="add_bttn" id="addIngredient">Add +</button>
                     </div>
                     <hr>
                     <!-- Steps -->
                     <label class="label-content">Steps</label>
                     <div class="form-group">
-                        <input type="text" class="form-control mb-2" placeholder="Step">
+                        <input type="text" class="form-control mb-2" id="steps" placeholder="Step">
                         <div id="stepsContainer"></div>
                         <!-- Add more steps fields -->
-                        <button class="add_bttn" id="addStep">Add +</button>
+                        <button type="button" class="add_bttn" id="addStep">Add +</button>
                     </div>
                     <hr>
                     <!-- Additional Details -->
@@ -147,6 +122,7 @@
                         <button type="submit" class="add_bttn">Submit</button>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
     </div>
@@ -160,13 +136,61 @@
     <script type="text/javascript">
         // Add more ingredient fields
         $('#addIngredient').click(function () {
-            $('#ingredientsContainer').append('<input type="text" class="form-control mb-2" placeholder="Ingredient">');
+            $('#ingredientsContainer').append('<input type="text" class="form-control mb-2" id="ingredient" placeholder="Ingredient">');
         });
 
         // Add more step fields
         $('#addStep').click(function () {
-            $('#stepsContainer').append('<input type="text" class="form-control mb-2" placeholder="Step">');
+            $('#stepsContainer').append('<input type="text" class="form-control mb-2" id="steps" placeholder="Step">');
         });
+    </script>
+    <script>
+        const form = document.querySelector('form[name="input_recipe"]')
+        form.addEventListener('submit',async (e) => {
+        e.preventDefault();
+        // get values
+        const recipeTitle = form.recipeTitle.value;
+        const recipeDescription = form.recipeDescription.value;
+        const imageURL = form.image.value;
+        const ingredients = [];
+        document.querySelectorAll('input[id="ingredient"]').forEach((ingredientInput) => {
+            const ingredient = ingredientInput.value;
+            if (ingredient) {
+                ingredients.push(ingredient);
+            }
+        });
+
+        // Get steps as an array of strings
+        const steps = [];
+        document.querySelectorAll('input[id="steps"]').forEach((stepInput) => {
+            const step = stepInput.value;
+            if (step) {
+                steps.push(step);
+            }
+        });
+
+        const calories = form.calories.value;
+        const servings = form.servings.value;
+        const prepTime = form.prepTime.value;
+        const cookingTime = form.cookingTime.value;
+
+        try{
+            const res = await fetch('/inputrecipe',{
+                method: 'POST',
+                body: JSON.stringify({recipeTitle:recipeTitle, recipeDescription:recipeDescription,imageURL:imageURL,ingredients:ingredients,steps:steps,calories:calories,servings:servings,prepTime:prepTime,cookingTime:cookingTime}),
+                headers: {'Content-Type': 'application/json'}
+            })
+            const data = await res.json();
+            console.log(data)
+            if (data) {
+                location.assign('/index');
+            }
+
+        }
+        catch(err){
+            console.log(err)
+        }
+        })
     </script>
     </body>
     </html>

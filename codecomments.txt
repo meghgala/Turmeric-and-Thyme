@@ -1,0 +1,21 @@
+When a user logs in the website their credentials are sent to the server
+If the server identifies them as correct credentials then it creates a Json Web Token (JWT) which will be stored as a cookie on the browser sent by the server.
+Once the cookie is created and stored, it is used by the server to verify the identity of the user and this data is sent from browser to the server. 
+If the user credentials are correct then the server lets the user access special pages.
+
+A JWT consisits of
+
+Header:
+
+The header typically consists of two parts: the type of the token, which is JWT, and the signing algorithm being used, such as HMAC SHA256 or RSA.
+It's Base64Url encoded to form the first part of the JWT.
+
+Payload:
+
+The payload contains the claims, which are statements about an entity (typically, the user) and additional data. There are three types of claims: registered, public, and private claims.
+The payload is Base64Url encoded and contains information like the subject (sub), issuer (iss), expiration time (exp), and more.
+
+Signature:
+
+The signature is created by taking the encoded header, encoded payload, a secret (or public key in the case of RSA), and the algorithm specified in the header, and then signing or hashing these components.
+The signature is used to verify the sender and the integrity of the JWT. Only parties with the secret (or public key) can generate a valid signature.

@@ -55,23 +55,23 @@
     <div class="container mt-5">
         <div class="card mx-auto" style="max-width: 600px; background-color: #b8e994;" >
             <!-- Recipe heading -->
-            <% blog.forEach((element) => { %>
+            <% recipes.forEach((element) => { %>
             <div class="card-header text-white text-center">
-                <h1 class="display-4"><%= element.title %></h1>
-                <p class="lead"><%= element.description %></p>
+                <h1 class="display-4"><%= element.recipeTitle %></h1>
+                <p class="lead"><%= element.recipeDescription %></p>
             </div>
             
             <!-- Food Image -->
-            <img src="food.png" alt="Food Image" class="card-img-top" style="max-height: 400px; object-fit: cover;">
+            <img src="<%= element.imageURL %>" alt="Food Image" class="card-img-top" style="max-height: 400px; object-fit: cover;">
             
             <!-- Recipe Facts -->
             <div class="card-body">
                 <h2 class="card-title">Recipe Facts</h2>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Calories:</strong> 350</li>
-                    <li class="list-group-item"><strong>Prep Time:</strong> 20 min</li>
-                    <li class="list-group-item"><strong>Cook Time:</strong> 30 min</li>
-                    <li class="list-group-item"><strong>Servings:</strong> 4</li>
+                    <li class="list-group-item"><strong>Calories:</strong> <%= element.calories %></li>
+                    <li class="list-group-item"><strong>Prep Time:</strong> <%= element.prepTime %></li>
+                    <li class="list-group-item"><strong>Cook Time:</strong> <%= element.cookingTime %></li>
+                    <li class="list-group-item"><strong>Servings:</strong> <%= element.servings %></li>
                 </ul>
             </div>
 
