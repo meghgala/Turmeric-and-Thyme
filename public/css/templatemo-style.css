@@ -2,6 +2,7 @@
 body {
   font-family: 'Raleway', 'sans-serif';
   background-color: #fff;
+  overflow-x: hidden;
 }
 
 ul {
@@ -123,7 +124,6 @@ input[type="search"]
   border: 2px solid #1D1E18;
   height: 10%;
   width: 45%;
-
 }
 
 .random-button:hover {
@@ -165,6 +165,34 @@ input[type="search"]
   color: #1D1E18;
 }
 
+/* Wave effect---------------------------------------------------------------- */
+
+.spacer{
+  aspect-ratio: 900/250;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+}
+
+.spacer2{
+  aspect-ratio: 900/250;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+}
+
+.layer1{
+  background-image: url('/img/wave.svg');
+}
+
+.layer2{
+  background-image: url('/img/waveup.svg');
+}
+
 /* ------------------------------------------------ Navbar --------------------------------------------------- */
 
 .nav {
@@ -172,7 +200,7 @@ input[type="search"]
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #84bc8d;
+  background-color: #ffed23;
   top: 0;
   width: 100%;
 }
@@ -183,11 +211,11 @@ input[type="search"]
 
 .nav li a {
   display: block;
-  color: #000000;
+  color: #43a021;
   line-height: 60px;
   padding: 1px 25px;
   font-size: 18px;
-  font-weight: 450;
+  font-weight: 550;
   transition: all 0.5s;
 }
 
@@ -196,8 +224,8 @@ input[type="search"]
 }
 
 .nav li a:hover {
-  color: #ffffff;
-  background-color: #000000;
+  color: #ffed23;
+  background-color: #43a021;
 }
 
 .nav img {
@@ -211,6 +239,12 @@ input[type="search"]
   display: table;
   clear: both;
 }
+
+/* --------------------------------------------------------------------*/
+
+
+
+
 
 /* Filter Options CSS ------------------------------------------------------- */
 
@@ -451,9 +485,9 @@ section.banner {
 }
 
 .banner {
-  background-image: url(../img/main_banner.jpg);
+  background-image: url(https://cdn.hellofresh.com/us/greenchef/user-guides/plant-based/PlantBasedDiet_UserGuideBanners_Tablet.png);
   width: 100%;
-  height: 100%;
+  height: 900px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -464,20 +498,45 @@ section.banner {
 .banner .banner-caption {
   padding: 280px 0px;
   justify-content: center;
-  
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounceFadeIn {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .banner .banner-caption h2 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 42px;
+  font-size: 72px;
   letter-spacing: 0.5px;
   color: #fff;
   justify-content: center;
+  animation: bounce 2.5s infinite
 }
 
 .banner .banner-caption span {
-  font-size: 22px;
+  font-size: 72px;
   color: #fff;
   letter-spacing: 0.5px;
   justify-content: center;
@@ -613,7 +672,6 @@ section.banner {
   font-weight: 500;
   letter-spacing: 0.5px;
   margin-top: 0px;
-  margin-bottom: 5px;
 }
 
 .popular-places .popular-item .thumb .text-content span {
