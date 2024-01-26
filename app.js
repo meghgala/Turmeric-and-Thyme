@@ -5,9 +5,10 @@ const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes")
 const cookieParser = require("cookie-parser");
 const { requireAuth, checkUser } = require("./middleware/authMiddleware");
+require('dotenv').config();
 
 // defining databse URL
-const dburl = 'mongodb+srv://meghgala:*Aom9820354556@turmeric.ldsxedw.mongodb.net/turmandthyme?retryWrites=true&w=majority';
+const dburl = process.env.MONGODB_URI;
 mongoose.connect(dburl,{useNewUrlParser: true, useUnifiedTopology: true})
 .then((result) => app.listen(PORT))
 .catch((err) => console.log(err));
