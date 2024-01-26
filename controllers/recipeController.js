@@ -1,4 +1,5 @@
 const Recipemodel = require('../models/recipe');
+const Usermodel = require('../models/user');
 
 module.exports.inputrecipe_get = (req,res) => {
     res.render('inputrecipe'); 
@@ -10,6 +11,13 @@ module.exports.inputrecipe_post = async (req,res) => {
     const {recipeTitle,recipeDescription,imageURL,ingredients,steps,calories,servings,prepTime,cookingTime} = req.body;
     const recipe = await Recipemodel.create({recipeTitle,recipeDescription,imageURL,ingredients:ingredients,steps:steps,calories,servings,prepTime,cookingTime,userId});
     res.status(201).json({recipe: recipe._id}) //we use .json to send back or to respond(res) to the front page with the json file of the user collection.
+}
+
+module.exports.index_get = async (req,res) => {
+  const userId = res.locals.userid;
+  const userinfo = await Usermodel.findOne({ _id: userId });
+  const recipes = await Recipemodel.find();
+  res.render('index', { recipes,userinfo});
 }
 
 module.exports.viewrecipe_get = async (req,res) => {

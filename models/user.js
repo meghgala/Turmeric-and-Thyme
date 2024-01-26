@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const { isEmail } = require('validator')
 
 // password hasher module
-const bcrypt = require('bcrypt')
+
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -36,15 +36,15 @@ userSchema.post('save',function(doc,next){
 // Fire a function before document is saved to database.
 //salt is a string added in front of password to add more security during hashing
 userSchema.pre('save', async function(next){
-    const salt = await bcrypt.genSalt();
-    this.password = await bcrypt.hash(this.password,salt);
+    // const salt = "ew"; // await bcrypt.genSalt();
+    // this.password = await bcrypt.hash(this.password,salt);
     next();
 })
 
 userSchema.statics.login = async function(email,password){
     const user = await this.findOne({email});
     if (user) {
-        const auth = await bcrypt.compare(password,user.password);
+        const auth = password === user.password // await bcrypt.compare(password,user.password);
         if(auth){
             return user;
         }
