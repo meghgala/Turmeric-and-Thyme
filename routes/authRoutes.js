@@ -21,5 +21,6 @@ router.post('/viewrecipe',recipeController.viewrecipe_post)
 router.get('/recipeblog',recipeController.recipeblog_get)
 
 router.get('/',recipeController.index_get)
+router.get('/index',recipeController.index_get)
 
 module.exports = router;
