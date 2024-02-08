@@ -1,19 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Signika:wght@500&display=swap');
 
+
+.line {
+    height: 4px; /* Set height of the line */
+    background-color: var(--green2); /* Set color of the line */
+    width: 100%; /* Set width to 100% */
+    margin-top: -5.5%;
+}
 .featured-recipes {
   animation: bounceFadeIn 1.5s ease-out;
   padding-bottom: 80px;
   width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(https://images.ctfassets.net/9l3tjzgyn9gr/6xg629pRv8wADGWxGspho7/716b5b6dfda1230bff540b6d3d54b3f8/food-for-clean-blood.jpg);
+  background-color: var(--yellow2);
 }
 
 .featured-recipes .featured-item {
   display: flex;
   flex-direction: column;
-  height: 100%; /* Ensure the card takes the full height */
+  height: 100%; 
 }
 
 .featured-recipes .featured-item .thumb {
@@ -25,7 +29,7 @@
 .featured-recipes .featured-item .thumb img {
   width: 100%;
   overflow: hidden;
-  height: 100%;
+  height: 30em;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -99,4 +103,35 @@
     -webkit-line-clamp: 4; /* Number of lines to show */
     -webkit-box-orient: vertical;
     color: var(--yellow2);
+}
+
+
+@media screen and (max-width: 1920px) {
+    /* Adjust styles for 1080p monitors */
+    .line {
+        height: 4px; /* Set height of the line */
+        background-color: var(--green2); /* Set color of the line */
+        width: 100%; /* Set width to 100% */
+        margin-top: -4.4%;
+    }
+}
+
+@media screen and (max-width: 1536px) {
+    /* Adjust styles for 15-inch laptop screens */
+    .line {
+        height: 4px; /* Set height of the line */
+        background-color: var(--green2); /* Set color of the line */
+        width: 100%; /* Set width to 100% */
+        margin-top: -5.5%;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    /* Adjust styles for 13-inch laptop screens */
+    .line {
+        height: 4px; /* Set height of the line */
+        background-color: var(--green2); /* Set color of the line */
+        width: 100%; /* Set width to 100% */
+        margin-top: -5.5%;
+    }
 }

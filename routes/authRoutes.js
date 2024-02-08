@@ -3,7 +3,6 @@ const authController = require('../controllers/authController')
 const recipeController = require('../controllers/recipeController')
 const { requireAuth, checkUser } = require("../middleware/authMiddleware");
 
-
 const router = Router();
 
 router.get('/signup',authController.signup_get);
@@ -22,5 +21,6 @@ router.get('/recipeblog',recipeController.recipeblog_get)
 
 router.get('/',recipeController.index_get)
 router.get('/index',recipeController.index_get)
+router.post('/index',recipeController.index_post)
 
 module.exports = router;

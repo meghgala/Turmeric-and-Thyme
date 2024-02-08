@@ -20,10 +20,18 @@ module.exports.index_get = async (req,res) => {
   res.render('index', { recipes,userinfo});
 }
 
+module.exports.index_post = async (req,res) => {
+  const searchWord = req.body.searchWord;
+  console.log(searchWord)
+  const recipes = await Recipemodel.find({ recipeDescription: searchWord });
+  res.render('searched', { recipes });
+}
+
 module.exports.viewrecipe_get = async (req,res) => {
     const userId = res.locals.userid;
-    const recipes = await Recipemodel.find({ userId });
-    res.render('viewrecipe', { recipes });
+    const user_recipes = await Recipemodel.find({ userId });
+    const recipes = await Recipemodel.find();
+    res.render('viewrecipe', { recipes, user_recipes });
 }
 
 module.exports.viewrecipe_post = async (req,res) => {
