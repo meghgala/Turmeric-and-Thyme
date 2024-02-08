@@ -1,6 +1,13 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Signika:wght@500&display=swap');
+
+:root {
+  --yellow2: #ffb700;
+  --green2: #0e6e1a;
+}
+
 body {
-  font-family: 'Raleway', 'sans-serif';
+  font-family: 'Signika', 'sans-serif';
   background-color: #fff;
   overflow-x: hidden;
 }
@@ -13,7 +20,7 @@ ul {
 
 p {
   font-size: 13px;
-  color: #7a7a7a;
+  color: #000000;
   line-height: 24px;
   left: 0.25px;
 }
@@ -48,7 +55,7 @@ input[type="search"]
 {
     display: inline-block;
     background: transparent;
-    border: 2px solid #fff;
+    border: 2px solid var(--green2);
     font-size: 15px;
     font-weight: 500;
     padding: 10px 16px ;
@@ -61,8 +68,8 @@ input[type="search"]
 
 .blue-button a {
   display: inline-block;
-  background-color: #6b8f71;
-  color: #fff;
+  background-color: var(--green2);
+  color: var(--yellow2);
   font-size: 15px;
   font-weight: 500;
   padding: 10px 16px;
@@ -100,7 +107,7 @@ input[type="search"]
 #header {
   overflow: visible;
   position: relative;
-  background-color: #6b8f71;
+  background-color: var(--green2);
 }
 
 /* Filter Options CSS ------------------------------------------------------- */
@@ -115,7 +122,7 @@ input[type="search"]
 
 .random-button {
   display: inline;
-  background-color: #6b8f71;
+  background-color: var(--green2);
   color: #fff;
   font-weight: 500;
   padding: 10px 16px;
@@ -147,8 +154,8 @@ input[type="search"]
 
 .search-button{
   display: inline-block;
-  background-color: #6b8f71;
-  color: #fff;
+  background-color: var(--green2);
+  color: var(--yellow2);
   font-size: 15px;
   font-weight: 500;
   padding: 10px 16px;
@@ -168,29 +175,18 @@ input[type="search"]
 /* Wave effect---------------------------------------------------------------- */
 
 .spacer{
+  position: absolute;
   aspect-ratio: 900/250;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
-}
-
-.spacer2{
-  aspect-ratio: 900/250;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-
+  height: 40em;
 }
 
 .layer1{
   background-image: url('/img/wave.svg');
-}
-
-.layer2{
-  background-image: url('/img/waveup.svg');
+  position: relative;
 }
 
 /* ------------------------------------------------ Navbar --------------------------------------------------- */
@@ -200,18 +196,19 @@ input[type="search"]
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #ffed23;
+  background-color: var(--yellow2);
   top: 0;
   width: 100%;
 }
 
 .nav li{
+  font-family: 'Signika', 'sans-serif';
   float: right;
 }
 
 .nav li a {
   display: block;
-  color: #43a021;
+  color: var(--green2);
   line-height: 60px;
   padding: 1px 25px;
   font-size: 18px;
@@ -224,8 +221,8 @@ input[type="search"]
 }
 
 .nav li a:hover {
-  color: #ffed23;
-  background-color: #43a021;
+  color: var(--yellow2);
+  background-color: var(--green2);
 }
 
 .nav img {
@@ -496,6 +493,7 @@ section.banner {
 }
 
 .banner .banner-caption {
+  font-family: 'Signika', 'sans-serif';
   padding: 280px 0px;
   justify-content: center;
 }
@@ -530,14 +528,14 @@ section.banner {
 .banner .banner-caption h2 {
   font-size: 72px;
   letter-spacing: 0.5px;
-  color: #fff;
+  color: var(--yellow2);
   justify-content: center;
   animation: bounce 2.5s infinite
 }
 
 .banner .banner-caption span {
   font-size: 72px;
-  color: #fff;
+  color: var(--yellow2);
   letter-spacing: 0.5px;
   justify-content: center;
 }
@@ -704,131 +702,6 @@ section.banner {
 .popular-places .popular-item .thumb .plus-button i:hover {
   background-color: rgba(250,250,250,0.3);
 }
-
-
-
-section.featured-places {
-  margin-top: 80px;
-  padding-bottom: 80px;
-  background-color: #aad2ba;
-}
-
-.featured-places .featured-item .thumb {
-  position: relative;
-  z-index: 1;
-}
-
-.featured-places .featured-item .thumb img {
-  width: 100%;
-  overflow: hidden;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.featured-places .featured-item .thumb .overlay-content {
-  position: absolute;
-  z-index: 9;
-  top: 30px;
-  left: 30px;
-  color: #fff;
-}
-
-.featured-places .featured-item .thumb .overlay-content li {
-  display: inline;
-  margin-right: 3px;
-}
-
-.featured-places .featured-item .thumb .date-content {
-  position: absolute;
-  z-index: 9;
-  top: 30px;
-  right: 30px;
-  color: #fff;
-  text-align: center;
-  width: 90px;
-  height: 90px;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  background-color: #1d1e18;
-  border-radius: 50%;
-}
-
-.featured-places .featured-item .thumb .date-content h6 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-top: 18px;
-  margin-bottom: 5px;
-  letter-spacing: 0.5px;
-}
-
-.featured-places .featured-item .thumb .date-content span {
-  font-size: 12px;
-  font-weight: 300;
-  text-transform: uppercase;
-  display: block;
-  letter-spacing: 0.5px;
-}
-
-.featured-places .featured-item .down-content {
-  background-color: #fff;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
-  padding: 20px 20px 0px 20px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.featured-places .featured-item .down-content h4 {
-  margin-top: 0px;
-  font-size: 19px;
-  font-weight: 600;
-  color: #232323;
-  margin-bottom: 5px;
-}
-
-.featured-places .featured-item .down-content span {
-  display: block;
-  font-size: 13px;
-  color: #1d1e18;
-  margin-bottom: 15px;
-}
-
-.featured-places .featured-item .down-content p {
-  margin-bottom: 20px;
-}
-
-.featured-places .featured-item .down-content .col-md-6 {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.featured-places .featured-item .down-content .text-button {
-  text-align: center;
-  height: 50px;
-  line-height: 50px;
-  border-top: 1px solid #ddd;
-  margin: 0px -5px;
-}
-
-.featured-places .featured-item .down-content .first-button {
-  border-right: 1px solid #ddd;
-}
-
-.featured-places .featured-item .down-content .text-button a {
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #7a7a7a;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  display: inline-block;
-  width: 100%;
-  transition: all 0.5s;
-}
-
-.featured-places .featured-item .down-content .text-button a:hover {
-  color: #1d1e18;
-}
-
 
 
 
@@ -1258,7 +1131,6 @@ section.contact .section-heading {
 
 
 footer {
-  margin-top: 80px;
   padding: 80px 0px 70px 0px;
   border-top: 1px solid #ddd;
 }

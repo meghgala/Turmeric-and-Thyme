@@ -6,9 +6,13 @@
     <title>Signup Page</title>
     <!-- Add your custom CSS for styling -->
     <style>
+            :root {
+  --yellow2: #ffd900;
+  --green2: #0e6e1a;
+}
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            background-color: var(--yellow2);;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -17,7 +21,7 @@
         }
 
         .login-container {
-            background-color: white;
+            background-color: var(--green2);
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -28,7 +32,12 @@
             margin-bottom: 15px;
         }
 
+        h2{
+            color: var(--yellow2);
+        }
+
         label {
+            color: var(--yellow2);
             font-weight: bold;
         }
 
@@ -41,8 +50,8 @@
         }
 
         .btn-primary {
-            background-color: #007bff;
-            color: white;
+            background-color: var(--yellow2);
+            color: var(--green2);
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
@@ -50,11 +59,29 @@
         }
 
         .btn-primary:hover {
-            background-color: #0056b3;
+            color: var(--yellow2);
+            background-color: var(--green2);
+            border:1px solid var(--yellow2) ;
         }
+
+        .logo {
+            width: 300px; 
+            height: auto; /* Maintain aspect ratio */
+            position: absolute; /* Position absolutely */
+            top: calc(30% - 148px); /* Adjust as needed */
+            left: calc(50% - 148px); /* Center horizontally */
+        }
+        .back{
+            padding-top: 0.5em;
+        }
+        .back a{
+            color: var(--yellow2);
+        }
+
     </style>
 </head>
 <body>
+    <img src="/img/logo.png" alt="Logo" class="logo">
     <div class="login-container">
         <h2>Sign Up</h2>
         <form name="signup">
@@ -74,6 +101,7 @@
                 <span id="passwordError" class="error"></span>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="back"> <a href="index">Back</a> </div>
         </form>
     </div>
 </body>

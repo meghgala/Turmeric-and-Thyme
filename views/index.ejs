@@ -7,7 +7,9 @@
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Signika:wght@500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/recipelist.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -32,30 +34,6 @@
  <!-------------------------------------- NAVBAR -------------------------------------->
 
         <header id="header">
-            <!-- <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <nav id="primary-nav" class="dropdown cf">
-                            <div class="logo">
-                                <img src="/img/logo.png" alt="Logo">
-                            </div>
-                            <ul class="dropdown menu">
-                                <% if (!userid) { %>
-                                <li class='active'><a href="/login">Login</a></li>
-                                <li class='active'><a href="/signup">Signup</a></li>
-                                <li><a class="scrollTo" href="/viewrecipe">All Recipes</a></li>
-                                <li><a class="scrollTo" href="/contactus">Contact Us</a></li>
-                                <% } else {%>
-                                <li><a class="scrollTo" href="/viewrecipe">My Recipes</a></li>
-                                <li><a class="scrollTo" href="/contactus">Contact Us</a></li>
-                                <li><a class="scrollTo" href="/inputrecipe">Give Recipes</a></li>
-                                <li><a class="scrollTo" href="/logout">Log Out</a></li>
-                                <% } %>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div> -->
             <ul class="nav">
                 <li><img src="/img/logo.png" alt="Logo" class="logo"></li>
                 <% if (!userid) { %>
@@ -95,33 +73,35 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-heading">
-                    <span>Search Here</span>
+                    <span style="font-family: 'Signika', 'sans-serif';">Search Here</span>
                 </div>
             </div> 
         </div> 
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-2"></div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <input type="text" class="search-box" id="searchBox" placeholder="Ingredient or dish">
+            <form name="search_input">
+                <div class="row justify-content-center">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <input type="text" class="search-box" id="searchBox" placeholder="Ingredient or dish">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button type="submit" class="search-button" id="searchBtn" style="font-family: 'Signika', 'sans-serif';">Search</button>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <button type="button" class="search-button" id="searchBtn">Search</button>
-                    </div>
-                </div>
-            </div>
+            </form>
             <div class="row justify-content-center">
                 <div class="col-md-12">
-                    <p class="or-caption">- OR -</p>
+                    <p class="or-caption" style="font-family: 'Signika', 'sans-serif';">- OR -</p>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="text-center">
-                        <button type="button" class="search-button">Click me for a random recipe</button>
+                        <button type="button" class="search-button" style="font-family: 'Signika', 'sans-serif';">Click me for a random recipe</button>
                     </div>
                 </div>
             </div>
@@ -129,7 +109,6 @@
     </section>
 
 <!---------------------------------------------------------Wave Component -------------------------------------------------->
-
 <div class="spacer layer1"></div>
 <!-----------------------------------------------------Featured Recipes---------------------------------------------------------------------->
 
@@ -138,7 +117,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <span>Featured recipes</span>
+                        <span style="font-family: 'Signika', 'sans-serif';">Featured recipes</span>
                     </div>
                 </div> 
             </div> 
@@ -271,7 +250,24 @@
             console.error('Error:', error);
         }
     }
-    
+        const form = document.querySelector('form[name="search_input"]')
+        form.addEventListener('submit',async (e) => {
+        e.preventDefault();
+        // get values
+        const searchword_html = form.searchBox.value;
+            try{
+                const res = await fetch('/index',{
+                    method: 'POST',
+                    body: JSON.stringify({searchWord:searchword_html}),
+                    headers: {'Content-Type': 'application/json'}
+                })
+                const data = await res.json();
+                console.log(data)
+            }
+            catch(err){
+                console.log(err)
+            }
+        })
 </script>
 </body>
 </html>
