@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400&family=Signika:wght@500&display=swap');
+
+:root {
+    --yellow2: #ffb700;
+    --green2: #0e6e1a;
+}
+
+.container-blog {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: var(--green2); /* Change background color */
+}
+
+.big-card {
+    max-width: 70em;
+    background-color: var(--yellow2);
+    padding: 4em;
+    margin: 4em;
+    border-radius: 10px;
+}
+
+.title{
+    font-family: 'Signika', 'sans-serif';
+    font-size: 4.5em;
+    color: var(--green2);
+    padding-bottom: 0.7em;
+}
+
+.description{
+    font-family: 'Dosis', 'sans-serif';
+    font-size: 2.5em;
+    color: var(--green2);
+    padding-bottom: 0.7em;
+}
+
+.img{
+    max-height: 60em;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.7);
+    margin-bottom: 2.7em;
+}
+
+.facts-title{
+    font-family: 'Signika', 'sans-serif';
+    font-size: 3.5em;
+    color: var(--green2);
+}
+
+.facts-list{
+    font-family: 'Dosis', 'sans-serif';
+    font-size: 2em;
+    color: var(--yellow2);
+    background-color: var(--green2);
+    padding: 2em;
+    border-radius: 10px;
+}

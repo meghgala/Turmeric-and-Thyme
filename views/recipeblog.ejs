@@ -5,91 +5,72 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/recipeform.css">
-        <link rel="stylesheet" href="css/recipelist.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/fontAwesome.css">
         <link rel="stylesheet" href="css/hero-slider.css">
-        <link rel="stylesheet" href="css/owl-carousel.css">
-        <link rel="stylesheet" href="css/datepicker.css">
         <link rel="stylesheet" href="css/templatemo-style.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+        <link rel="stylesheet" href="css/recipeblog.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Recipe Form</title>
+        <title>Recipe!</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-        <script src="js/index.js"></script>
-        <link rel="stylesheet" href="css/recipeform.css">
     </head>
 
 <body>
-    <div class="wrap">
-        <header id="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <button id="primary-nav-button" type="button">Menu</button>
-                      <!--  <a href="index.html"><div class="logo">
-                            <img src="img/logo.png" alt="Venue Logo">
-                        </div></a>-->
-                        <nav id="primary-nav" class="dropdown cf">
-                            <ul class="dropdown menu">
-                                <li class='active'><a href="/index">Home</a></li>
-                                <li><a class="scrollTo" href="/viewrecipe">All Recipes</a></li>
-                                <li><a class="scrollTo" data-scrollTo="contact" href="#">Contact Us</a></li>
-                            </ul>
-                        </nav><!-- / #primary-nav -->
-                    </div>
-                </div>
-            </div>
-        </header>
-    </div>
+    <header id="header">
+        <ul class="nav">
+            <li><a href="/index"><img src="/img/logo.png" alt="Logo" class="logo"></a></li>
+            <% if (!userid) { %>
+                <li><a class="nav li" href="/login">Login</a></li>
+                <li><a class="nav li" href="/signup">Signup</a></li>
+                <li><a class="nav li" href="/viewrecipe">Recipes</a></li>
+                <li><a class="nav li" href="/contactus">About Us</a></li>
+            <% } else {%>
+                <li><a class="nav li" href="/viewrecipe">My Recipes</a></li>
+                <li><a class="nav li" href="/inputrecipe">Give Recipe</a></li>
+                <li><a class="nav li" href="/contactus">About Us</a></li>
+                <li><a class="nav li" href="/logout">Log Out</a></li>
+            <% } %>
+          </ul>
+    </header>
     <!------------------------------------------------------------------------------------------------------------------------------------>
-    <div class="container mt-5">
-        <div class="card mx-auto" style="max-width: 600px; background-color: #b8e994;" >
+    <div class="container-blog">
+        <div class="big-card">
             <!-- Recipe heading -->
             <% recipes.forEach((element) => { %>
-            <div class="card-header text-white text-center">
-                <h1 class="display-4"><%= element.recipeTitle %></h1>
-                <p class="lead"><%= element.recipeDescription %></p>
+            <div class="text-center">
+                <p class="title"><%= element.recipeTitle %></p>
+                <p class="description"><%= element.recipeDescription %></p>            
+            <!-- Food Image -->
+                <img src="<%= element.imageURL %>" alt="Food Image" class="img">
             </div>
             
-            <!-- Food Image -->
-            <img src="<%= element.imageURL %>" alt="Food Image" class="card-img-top" style="max-height: 400px; object-fit: cover;">
-            
             <!-- Recipe Facts -->
-            <div class="card-body">
-                <h2 class="card-title">Recipe Facts</h2>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Calories:</strong> <%= element.calories %></li>
-                    <li class="list-group-item"><strong>Prep Time:</strong> <%= element.prepTime %></li>
-                    <li class="list-group-item"><strong>Cook Time:</strong> <%= element.cookingTime %></li>
-                    <li class="list-group-item"><strong>Servings:</strong> <%= element.servings %></li>
+            <div class="facts-container">
+                <h2 class="facts-title">Recipe Facts</h2>
+                <ul class="facts-list">
+                    <li><strong>Calories:</strong> <%= element.calories %></li>
+                    <li><strong>Prep Time:</strong> <%= element.prepTime %></li>
+                    <li><strong>Cook Time:</strong> <%= element.cookingTime %></li>
+                    <li><strong>Servings:</strong> <%= element.servings %></li>
                 </ul>
             </div>
 
             <!-- Ingredients Section -->
-            <div class="card-body">
-                <h2 class="card-title">Ingredients</h2>
-                <ul class="list-group">
+            <div class="facts-container">
+                <h2 class="facts-title">Ingredients</h2>
+                <ul class="facts-list">
                     <% element.ingredients.forEach((item) => { %>
-                    <li class="list-group-item"><%= item %></li>
+                    <li><%= item %></li>
                     <% }); %>
                     <!-- Add more ingredients as needed -->
                 </ul>
             </div>
 
             <!-- Steps Section -->
-            <div class="card-body">
-                <h2 class="card-title">Steps</h2>
-                <ol>
+            <div class="facts-container">
+                <h2 class="facts-title">Steps</h2>
+                <ol class="facts-list">
                     <% element.steps.forEach((item) => { %>
                     <li><%= item %></li>
                     <% }); %>

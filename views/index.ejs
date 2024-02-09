@@ -40,11 +40,11 @@
                     <li><a class="nav li" href="/login">Login</a></li>
                     <li><a class="nav li" href="/signup">Signup</a></li>
                     <li><a class="nav li" href="/viewrecipe">Recipes</a></li>
-                    <li><a class="nav li" href="/contactus">Contact Us</a></li>
+                    <li><a class="nav li" href="/contactus">About Us</a></li>
                 <% } else {%>
                     <li><a class="nav li" href="/viewrecipe">My Recipes</a></li>
                     <li><a class="nav li" href="/inputrecipe">Give Recipe</a></li>
-                    <li><a class="nav li" href="/contactus">Contact Us</a></li>
+                    <li><a class="nav li" href="/contactus">About Us</a></li>
                     <li><a class="nav li" href="/logout">Log Out</a></li>
                 <% } %>
               </ul>
@@ -69,11 +69,11 @@
         </div>
     </section>
 <!----------------------------------------------Click here for a random recommendation---------------------------------------------------------->
-    <section class="popular-places" id="popular">
+<section class="popular-places" id="popular">
         <div class="row">
             <div class="col-md-12">
                 <div class="section-heading">
-                    <span style="font-family: 'Signika', 'sans-serif';">Search Here</span>
+                    <span style="font-family: 'Signika', 'sans-serif'; color: #0e6e1a;">Search Here</span>
                 </div>
             </div> 
         </div> 
@@ -95,7 +95,7 @@
             </form>
             <div class="row justify-content-center">
                 <div class="col-md-12">
-                    <p class="or-caption" style="font-family: 'Signika', 'sans-serif';">- OR -</p>
+                    <p class="or-caption" style="font-family: 'Signika', 'sans-serif'; color: #0e6e1a;">- OR -</p>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -108,16 +108,14 @@
         </div>
     </section>
 
-<!---------------------------------------------------------Wave Component -------------------------------------------------->
-<div class="spacer layer1"></div>
 <!-----------------------------------------------------Featured Recipes---------------------------------------------------------------------->
 
-    <section class="featured-recipes" id="blog">
+    <section class="featured-recipes" style="background-image: url('/img/1.png');" id="blog">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <span style="font-family: 'Signika', 'sans-serif';">Featured recipes</span>
+                        <span style="font-family: 'Signika', 'sans-serif'; color: #0e6e1a; margin-top: 5em;">Featured recipes</span>
                     </div>
                 </div> 
             </div> 
@@ -242,6 +240,7 @@
 
     <%- include('./partials/footer.ejs') %>
     <script>
+
         async function loadRecipe(recipeId) {
         try {
             // Redirect to the recipeblog page with the recipe ID as a query parameter
