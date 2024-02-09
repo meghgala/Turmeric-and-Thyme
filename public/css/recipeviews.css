@@ -27,7 +27,7 @@
 }
 
 .featured-recipes .featured-item .thumb img {
-  width: 100%;
+  width: 50em;
   overflow: hidden;
   height: 30em;
   border-top-left-radius: 5px;

@@ -1,6 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400&family=Signika:wght@500&display=swap');
+
+:root {
+    --yellow2: #ffb700;
+    --green2: #0e6e1a;
+}
+
+.input{
+    background-color: var(--green2); /* Change background color */
+}
+
+.title{
+    font-family: 'Signika', 'sans-serif';
+    font-size: 4.5em;
+    color: var(--green2);
+}
+
+.big-card {
+    max-width: 170em;
+    background-color: var(--yellow2);
+    padding: 4em;
+    margin: 4em;
+    border-radius: 10px;
+}
+
 .form-control{
-    background: rgb(255, 255, 255);
-    border: 1px solid #1D1E18;
+    font-family: 'Dosis', 'sans-serif';
+    border: 2px solid var(--green2);
+    border-radius: 5px;
     font-size: 15px;
     font-weight: 400;
     padding: 10px 16px ;
@@ -9,11 +35,18 @@
     justify-content: center;
 }
 
+.label-stuff{
+    font-family: 'Dosis', 'sans-serif';
+    font-size: 20px;
+    color: var(--green2);
+}
+
 .add_bttn{
+    font-family: 'Dosis', 'sans-serif';
     display: inline-block;
-    background-color: #1b1b1b;
-    color: #fff;
-    font-size: 15px;
+    background-color: var(--green2);
+    color: var(--yellow2);
+    font-size: 18px;
     font-weight: 400;
     padding: 10px 16px;
     text-decoration: none;
@@ -22,6 +55,7 @@
     height: 5%;
     width: 15%;
     justify-content: center;
+    border-radius: 5px;
 }
 
 .add_bttn:hover{
@@ -30,6 +64,12 @@
   }
 
 .label-content{
-    font-size: 15px;
-    font-weight: 550;
+    font-family: 'Signika', 'sans-serif';
+    font-size: 3.5em;
+    color: var(--green2);
+}
+
+.lines{
+    color: var(--green2);
+    height: 5px;
 }
