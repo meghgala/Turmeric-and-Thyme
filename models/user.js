@@ -1,59 +1,61 @@
 const mongoose = require('mongoose');
+const { isEmail } = require('validator');
 
-//this module returns true if the email is valid and false if the email is invalid.
-const { isEmail } = require('validator')
+// Define a custom password hasher function
+const hashPassword = (password) => {
+    // Static salt
+    const salt = 'mySalt123'; // You can change this to a more secure value
 
-// password hasher module
+    // Combine password with salt
+    const saltedPassword = password + salt;
 
+    // Simple hashing algorithm 
+    let hashedPassword = '';
+    for (let i = 0; i < saltedPassword.length; i++) {
+        const charCode = saltedPassword.charCodeAt(i);
+        hashedPassword += String.fromCharCode(charCode + 1); // Increment each character code
+    }
+
+    return hashedPassword;
+};
 
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: [true,'Please enter a Username'],
+        required: [true, 'Please enter a Username'],
     },
-    email:{
+    email: {
         type: String,
-        required: [true,'Please enter an email address'],
+        required: [true, 'Please enter an email address'],
         unique: true,
         lowercase: true,
-        validate: [isEmail,'Please enter a valid email'] // using a third party email validator
+        validate: [isEmail, 'Please enter a valid email']
     },
     password: {
         type: String,
-        required: [true,'Please enter a password'],
-        minlength: [6,'The length of the password should be atleast 6 characters']
+        required: [true, 'Please enter a password'],
+        minlength: [6, 'The length of the password should be at least 6 characters']
     }
 });
 
-//To fire a function after a document is saved to database
-// the post here is not a get/post request, it is a method to indicate what to do after userschema is saved. 
-// The next() function is used to pass control to the next middleware function in the stack.s
-userSchema.post('save',function(doc,next){                
-    console.log('new user was created and saved', doc);
-    next();
-})
-
 // Fire a function before document is saved to database.
-//salt is a string added in front of password to add more security during hashing
-userSchema.pre('save', async function(next){
-    // const salt = "ew"; // await bcrypt.genSalt();
-    // this.password = await bcrypt.hash(this.password,salt);
+userSchema.pre('save', function(next) {
+    // Hash the password before saving
+    this.password = hashPassword(this.password);
     next();
-})
+});
 
-userSchema.statics.login = async function(email,password){
-    const user = await this.findOne({email});
+userSchema.statics.login = async function(email, password) {
+    const user = await this.findOne({ email });
     if (user) {
-        const auth = password === user.password // await bcrypt.compare(password,user.password);
-        if(auth){
+        const auth = password === user.password;
+        if (auth) {
             return user;
         }
-        throw Error('Incorrect password')
+        throw Error('Incorrect password');
     }
-    throw Error('incorrect email')
+    throw Error('Incorrect email');
 }
 
-// the two arguements in mongoose.model are ('user'- this arguement is for storing user information in user collection of databse, userSchema is the schema defined for this collection.)
-const Usermodel = mongoose.model('user', userSchema)// in this syntax the last word 'user' should be singular because it will be accessed as plural form from database
-
+const Usermodel = mongoose.model('user', userSchema);
 module.exports = Usermodel;

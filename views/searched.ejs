@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/recipeform.css">
-        <link rel="stylesheet" href="css/recipelist.css">
+        <link rel="stylesheet" href="css/recipeviews.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/fontAwesome.css">
@@ -16,39 +16,36 @@
         <link rel="stylesheet" href="css/templatemo-style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Searched Recipe List</title>
+        <link rel="icon" type="image/x-icon" href="/img/herb.png">
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Signika:wght@500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="js/index.js"></script>
     </head>
 
 <body>
-    <div class="wrap">
-        <header id="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <button id="primary-nav-button" type="button">Menu</button>
-                      <!--  <a href="index.html"><div class="logo">
-                            <img src="img/logo.png" alt="Venue Logo">
-                        </div></a>-->
-                        <nav id="primary-nav" class="dropdown cf">
-                            <ul class="dropdown menu">
-                                <li class='active'><a href="/index">Home</a></li>
-                                <li><a class="scrollTo" href="/viewrecipe">All Recipes</a></li>
-                                <li><a class="scrollTo" data-scrollTo="contact" href="#">Contact Us</a></li>
-                            </ul>
-                        </nav><!-- / #primary-nav -->
-                    </div>
-                </div>
-            </div>
-        </header>
-    </div>
+    <header id="header">
+        <ul class="nav">
+            <li><a href="/index"><img src="/img/logo.png" alt="Logo" class="logo"></a></li>
+            <% if (!userid) { %>
+                <li><a class="nav li" href="/login">Login</a></li>
+                <li><a class="nav li" href="/signup">Signup</a></li>
+                <li><a class="nav li" href="/viewrecipe">Recipes</a></li>
+                <li><a class="nav li" href="/contactus">About Us</a></li>
+            <% } else {%>
+                <li><a class="nav li" href="/viewrecipe">My Recipes</a></li>
+                <li><a class="nav li" href="/inputrecipe">Give Recipe</a></li>
+                <li><a class="nav li" href="/contactus">About Us</a></li>
+                <li><a class="nav li" href="/logout">Log Out</a></li>
+            <% } %>
+          </ul>
+    </header>
     <!--------------------------------------------------------------------------------------------->
     <section class="featured-recipes" id="blog">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <span>Showing searched recipes</span>
+                        <span style="font-family: 'Signika', 'sans-serif'; color: #0e6e1a;">Showing searched recipes</span>
                     </div>
                 </div> 
             </div> 
