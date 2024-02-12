@@ -20,12 +20,41 @@ module.exports.index_get = async (req,res) => {
   res.render('index', { recipes,userinfo});
 }
 
-module.exports.index_post = async (req,res) => {
-  const searchWord = req.body.searchWord;
-  console.log(searchWord)
-  const recipes = await Recipemodel.find({ recipeDescription: searchWord });
-  res.render('searched', { recipes });
-}
+module.exports.search_post = async (req, res) => {
+  try {
+    const searchWord = req.body.searchWord;
+    const regex = new RegExp(searchWord, 'i');
+    const recipes = await Recipemodel.find({ recipeDescription: regex });
+    console.log(searchWord)
+    res.status(201).json({recipes}) //we use .json to send back or to respond(res) to the front page with the json file of the user collection.
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+
+module.exports.search_get = async (req, res) => {
+  try {
+    const searchword_html = req.query.searchword_html;
+      if (!searchword_html) {
+      return res.status(400).send('Recipe ID is required');
+    }
+    const regex = new RegExp(searchword_html, 'i');
+    const recipes = await Recipemodel.find({ recipeDescription: regex });
+    console.log(searchword_html)
+
+    // Validate that the recipe exists
+    if (!recipes) {
+      return res.status(404).send('Recipe not found');
+    }
+    // Render the recipeblog page with the retrieved recipe
+    res.render('searched', { recipes});
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
 
 module.exports.viewrecipe_get = async (req,res) => {
     const userId = res.locals.userid;
@@ -44,9 +73,7 @@ module.exports.viewrecipe_post = async (req,res) => {
 module.exports.recipeblog_get = async (req, res) => {
     try {
       const recipeId = req.query.recipeId;
-  
-      // Validate that the recipeId is provided
-      if (!recipeId) {
+        if (!recipeId) {
         return res.status(400).send('Recipe ID is required');
       }
   
