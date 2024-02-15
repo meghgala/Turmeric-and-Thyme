@@ -1,4 +1,4 @@
-# [Turmeric And Thyme]([https://example.com](https://tuermeric-and-thyme.onrender.com/index))
+# [Turmeric And Thyme](https://tuermeric-and-thyme.onrender.com/index)
 This website was developed as a hobby project to learn and refine my full-stack development skills mostly focusing on the backend. The website serves as a repository for 
 your recipes and also as a source of inspiration by having a look at other recipes. As a user, you can do the following activities on this website :
 
