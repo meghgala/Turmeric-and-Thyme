@@ -56,3 +56,20 @@
     padding: 2em;
     border-radius: 10px;
 }
+
+@media only screen and (max-width: 360px) {
+    .facts-title{
+        font-family: 'Signika', 'sans-serif';
+        font-size: 3em;
+        color: var(--green2);
+    }
+    
+    .facts-list{
+        font-family: 'Dosis', 'sans-serif';
+        font-size: 1.5em;
+        color: var(--yellow2);
+        background-color: var(--green2);
+        padding: 2em;
+        border-radius: 10px;
+    }
+}

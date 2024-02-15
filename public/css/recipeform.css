@@ -73,3 +73,50 @@
     color: var(--green2);
     height: 5px;
 }
+
+@media only screen and (max-width: 360px) {
+
+    .title{
+        font-family: 'Signika', 'sans-serif';
+        font-size: 3em;
+        color: var(--green2);
+    }
+    .form-control{
+        font-family: 'Dosis', 'sans-serif';
+        border: 2px solid var(--green2);
+        border-radius: 5px;
+        font-size: 1.5em;
+        font-weight: 400;
+        padding: 10px 16px ;
+        height: 10%;
+        width: 100%;
+        justify-content: center;
+    }
+    .label-content{
+        font-family: 'Signika', 'sans-serif';
+        font-size: 2em;
+        color: var(--green2);
+    }
+    .add_bttn{
+        font-family: 'Dosis', 'sans-serif';
+        display: inline-block;
+        background-color: var(--green2);
+        color: var(--yellow2);
+        font-size: 18px;
+        font-weight: 400;
+        padding: 10px 16px;
+        text-decoration: none;
+        transition: all 0.5s;
+        border: 1px solid #1D1E18;
+        height: 5%;
+        width: 50%;
+        justify-content: center;
+        border-radius: 5px;
+    }
+    
+    .add_bttn:hover{
+        background-color: white;
+        color: #1D1E18;
+      }
+
+}

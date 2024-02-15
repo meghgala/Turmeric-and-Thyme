@@ -1243,10 +1243,42 @@ footer .contact-info ul li a {
 }
 
 
+@media only screen and (max-width: 360px) and (min-width: 481px) and (max-width: 767px) {
+  .nav li a {
+    line-height: 30px; /* Adjusted line height for smaller screens */
+    padding: 1px 10px; /* Adjusted padding for smaller screens */
+    font-size: 18px; /* Adjusted font size for smaller screens */
+  }
+  .nav li.logo {
+    float: none; /* Adjusted float for logo on smaller screens */
+    text-align: center; /* Centering logo on smaller screens */
+  }
+  .banner .banner-caption h2 {
+    font-size: 5em;
+    letter-spacing: 0.5px;
+    color: var(--yellow2);
+    justify-content: center;
+    animation: bounce 2.5s infinite
+  }
+
+  .feature{
+    color: var(--yellow2);
+  }
+}
+
 @media (max-width:992px) {
 
   .banner .banner-caption {
     padding: 200px 30px;
+    font-size: 1em;
+  }
+
+  .banner .banner-caption h2 {
+    font-size: 5em;
+    letter-spacing: 0.5px;
+    color: var(--yellow2);
+    justify-content: center;
+    animation: bounce 2.5s infinite
   }
 
   .submit-form input {

@@ -35,3 +35,40 @@
     font-size: 2.5em;
     padding: 2em;
 }
+
+
+@media only screen and (max-width: 360px) {
+    .title {
+        font-family: 'Signika', 'sans-serif';
+        font-size: 2em; /* Adjusted font size for mobile */
+        color: var(--yellow2);
+        padding-bottom: 0.3em; /* Adjusted padding for mobile */
+        padding-top: 0.5em; /* Adjusted padding for mobile */
+        position: relative;
+        text-align: center;
+    }
+    
+    .about {
+        height: 100%;
+        background-color: var(--green2);
+        padding-bottom: 3.5em; /* Adjusted padding for mobile */
+    }
+    
+    .about-card-body {
+        height: auto; /* Adjusted height for mobile */
+        border-radius: 10px;
+        background-color: var(--yellow2);
+        margin-bottom: 1em; /* Adjusted margin for mobile */
+        width: 90vw; /* Adjusted width for mobile */
+        max-width: 360px; /* Adjusted max-width for mobile */
+        margin-left: auto; /* Centering the element */
+        margin-right: auto; /* Centering the element */
+    }
+    
+    .card-text {
+        color: var(--green2);
+        font-family: 'Dosis', sans-serif;
+        font-size: 1.5em; /* Adjusted font size for mobile */
+        padding: 1.5em; /* Adjusted padding for mobile */
+    }
+}
